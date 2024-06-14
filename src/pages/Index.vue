@@ -59,7 +59,7 @@
             </div> -->
             <div class="flex flex-nowrap rounded-lg shadow-md p-5 ">
                 <div class="text-left mx-5 max-w-7xl w-2/3">
-                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl  ">Adnane Riyadi is Aspiring <span class=" text-zraq-700"  >AI & Data Science</span>  student <br> And <span class=" text-zraq-700"  >Full Stack Engineer</span>  </h1>
+                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 dark:text-rmadi-200 sm:text-6xl  ">Adnane Riyadi is Aspiring <span class=" text-zraq-700"  >AI & Data Science</span>  student <br> And <span class=" text-zraq-700"  >Full Stack Engineer</span>  </h1>
                     <p class="mt-6 text-lg leading-8 text-gray-600 ">
                         AI and Data Science student at FST Tangier and ALX with a background in Full Stack Engineering and two years of web
                         development experience. <br> Proficient in Python, TensorFlow, PyTorch, and data modeling. Experienced in AI model
@@ -68,7 +68,25 @@
                         integrating AI with Full Stack development to drive technological innovation.
                     </p>
                     <div class="mt-10 flex items-center justify-start gap-x-6">
-                        <a href="#" class="rounded-md bg-zraq-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-zraq-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zraq-700">Get In Touch</a>
+                        <div class=" flex flex-col sm:flex-row gap-3 ">
+                            <Link
+                                rel="noopener"
+                                href="#"
+                                class="flex gap-1 items-center justify-center rounded-md bg-zraq-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-zraq-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zraq-700">
+                                Get In Touch
+                            </Link>
+                            
+                            <Link
+                                href="#"
+                                class="flex gap-1 items-center justify-center rounded-md bg-rmadi-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-rmadi-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rmadi-700"
+                                rel="noopener">
+                                Download Resume
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                        <path fill-rule="evenodd" d="M12 2.25a.75.75 0 0 1 .75.75v11.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 1 1 1.06-1.06l3.22 3.22V3a.75.75 0 0 1 .75-.75Zm-9 13.5a.75.75 0 0 1 .75.75v2.25a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V16.5a.75.75 0 0 1 1.5 0v2.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V16.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
+                                    </svg>
+                            </Link>
+                        </div>
+                        <!-- <a href="#" class="rounded-md bg-zraq-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-zraq-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zraq-700">Get In Touch</a> -->
                         <!-- <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Learn more <span aria-hidden="true">→</span></a> -->
                     </div>
                 </div>
@@ -159,7 +177,20 @@ const projects = ref([
     description: 'Description for project 3',
     image: 'https://images.unsplash.com/photo-1661749711934-492cd19a25c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80',
     link: '#'
-  }
+  },
+  {
+    title: 'Project 1',
+    description: 'Description for project 1',
+    image: 'https://images.unsplash.com/photo-1661749711934-492cd19a25c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80',
+    link: '#'
+  },
+  {
+    title: 'Project 2',
+    description: 'Description for project 2',
+    image: 'https://images.unsplash.com/photo-1661749711934-492cd19a25c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80',
+    link: '#'
+  },
+
   // Add more projects as needed
 ])
 </script>
