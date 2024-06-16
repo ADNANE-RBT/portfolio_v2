@@ -1,13 +1,3 @@
-<!-- <script setup>
-// import { ref } from 'vue'
-
-// defineProps({
-//   msg: String,
-// })
-
-// const count = ref(0)
-</script> -->
-
 <template>
 
       <header class="absolute inset-x-0 top-0 z-50">
@@ -80,7 +70,7 @@
     { name: 'Projects', href: '#' },
     { name: 'Contact', href: '#' },
   ]
-  const darkmode = ref(false)
+  const darkmode = ref(true)
   const mobileMenuOpen = ref(false)
 
   const toggledarkmode = () => {

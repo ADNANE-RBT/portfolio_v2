@@ -2,16 +2,18 @@
 
 <div class="group p-6 sm:p-8 rounded-3xl bg-white border border-gray-100 dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50 shadow-2xl shadow-gray-600/10">
   <div class="relative overflow-hidden rounded-t-xl border-x border-t border-rmadi-400">
-    <img :src="image" :alt="title" loading="lazy" width="1000" height="667" class="h-64 w-full object-cover object-top transition duration-500 group-hover:scale-105" />
+    <img :src="resolvedImagePath"  :alt="title" loading="lazy" width="1000" height="667" class="h-64 w-full object-cover object-top transition duration-500 group-hover:scale-105" />
   </div>
-  <div class="w-full rounded-b-xl grid grid-cols-4 gap-x-1 gap-y-2 p-2 border-b border-x border-rmadi-400 shadow-lg">
-    <div class="bg-gray-100 transition duration-500 hover:scale-105 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-400 border border-gray-500">Dark</div>
-  </div>
+  <div class="w-full flex flex-wrap gap-1 p-2 border-b border-x border-rmadi-400 shadow-lg">
+      <span v-for="(hashtag, index) in hashtags" :key="index" class="bg-gray-100 transition duration-500 hover:scale-105 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-400 border border-gray-500 inline-block">
+        {{ hashtag }}
+      </span>
+    </div>
   <div class="mt-6 relative">
     <h3 class="text-2xl font-semibold text-gray-800 dark:text-white">{{ title }}</h3>
-    <p class="mt-6 mb-8 text-gray-600 dark:text-gray-300">{{ description }}</p>
+    <p class="mt-6 mb-8 text-gray-600 dark:text-gray-300">{{ description }}  </p>
     <div class=" flex justify-start items-center -translate-x-2 px-2 dark:text-zraq-500 hover:text-zraq-300 fill-zraq-500 hover:fill-zraq-300 transform transition-transform duration-300 ease-in-out hover:translate-x-2">
-      <a class="inline-block pb-1 mr-2" :href="link">
+      <a class="inline-block pb-1 mr-2" :href="link" target="_blank">
         <span class=" rounded-md ">Read more</span>
       </a>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-4  ">
@@ -30,14 +32,29 @@
 
 
 <script setup>
-  import { defineProps } from 'vue'
+  import { defineProps, computed ,onMounted  } from 'vue'
   import { ref } from 'vue'
  
-const link = ref('#')
-  const props = defineProps({
+const props = defineProps({
     title: String,
     description: String,
     image: String,
-    link: String
+    link: String,
+    hashtags: Array
   })
+
+  const resolvedImagePath = ref('');
+
+onMounted(async () => {
+  const link = props.link
+  const images = import.meta.glob('../assets/*.{jpg,png,jpeg,gif,svg}');
+  const imagePath = Object.keys(images).find(path => path.includes(props.image));
+  if (imagePath) {
+    resolvedImagePath.value = (await images[imagePath]()).default;
+  } else {
+    console.error(`Image not found: ${props.image}`);
+    resolvedImagePath.value = '';
+  }
+});
+
   </script> 
