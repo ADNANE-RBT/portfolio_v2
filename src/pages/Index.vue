@@ -1,6 +1,6 @@
 <template>
     <div class=" text-gray-900 dark:text-white ">
-        <div class="relative isolate px-6  lg:px-8 flex flex-nowrap">
+        <div id="header" class="relative isolate px-6  lg:px-8 flex flex-nowrap">
             <!-- designs absolute pos -->
             <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
             <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/4 rotate-[30deg] bg-gradient-to-tr from-[#282C33] to-rmadi-300 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" />
@@ -73,14 +73,13 @@
                         Strong problem-solving skills and attention to detail. Passionate about
                         integrating AI with Full Stack development to drive technological innovation.
                     </p>
-                    <div class="mt-10 flex items-center justify-start gap-x-6">
+                    <div class="mb-20 mt-10 flex items-center justify-start gap-x-6">
                         <div class=" flex flex-col sm:flex-row gap-3 ">
-                            <Link
-                                rel="noopener"
-                                href="#"
+                            <a
+                            href="https://calendly.com/adnanriyadi/30min" target="_blank"
                                 class="flex gap-1 items-center justify-center rounded-md bg-zraq-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-zraq-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zraq-700">
                                 Get In Touch
-                            </Link>
+                            </a>
                             
                             <button @click="downloadResume" class="flex gap-1 items-center justify-center rounded-md bg-rmadi-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-rmadi-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rmadi-700">
                                 Download Resume
@@ -108,7 +107,7 @@
         </div> 
     </div>
         <!-- Education part -->
-        <div class=" mx-5 lg:mx-32 lg:px-8 pb-24  sm:pb-32">
+        <div id="edu" class=" mx-5 lg:mx-32 lg:px-8 pb-24  sm:pb-32">
      
   
      <div class="relative isolate ">
@@ -130,7 +129,7 @@
 
  </div>
     <!-- projects -->
-    <div class=" mx-5 lg:mx-32 lg:px-8 pb-24  sm:pb-32">
+    <div id="projects" class=" mx-5 lg:mx-32 lg:px-8 pb-24  sm:pb-32">
      <div class="mb-12 space-y-2 text-start flex flex-nowrap items-center">
     <h2 class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white">
       <span class="text-zraq-500">#</span> Projects
@@ -143,7 +142,7 @@
       </svg>
     </div>
   </div>
-      <div class="grid gap-8 md:grid-cols-2  2xl:grid-cols-4">
+      <div class="grid gap-8 md:grid-cols-2  2xl:grid-cols-4 mb-36 ">
         <ProjectCard
       v-for="(project, index) in projects"
       :key="index"
@@ -164,7 +163,7 @@
 
 
  <!-- Experience part -->
- <div class=" mx-5 lg:mx-32 lg:px-8 pb-24  sm:pb-32">
+ <div id="exp" class=" mx-5 lg:mx-32 lg:px-8 pb-24  sm:pb-32">
      
   
      <div class="relative isolate px-6 lg:px-8 ">
@@ -191,7 +190,7 @@
 
  </div>
     <!-- skills part -->
-<div class=" mx-5 lg:mx-32 lg:px-8 pb-24  sm:pb-32">
+<div id="skills" class=" mx-5 lg:mx-32 lg:px-8 pb-24  sm:pb-32">
      
   
         <div class="relative isolate px-6 lg:px-8 ">
@@ -218,8 +217,8 @@
 
     </div>
 
-    <!-- footer part -->
-    <div class=" mx-5 lg:mx-32 lg:px-8 pb-24  sm:pb-32">
+    <!-- COntact part -->
+    <div id="contact" class=" mx-5 lg:mx-32 lg:px-8 pb-24  sm:pb-32">
      
   
      <div class="relative isolate px-6 lg:px-8 ">
@@ -260,7 +259,7 @@ import ContactCard from '../components/ContactCard.vue'
 const projects = ref([
   {
     title: 'Smart Wheelchair for Path Optimization and Obstacle Detection',
-    description: 'Design and implement an artificial intelligence model capable of optimizing the best path for the wheelchair based on real-time environmental data and user preferences. <br> Train and deploy a computer vision model using camera input to accurately detect and classify obstacles in the wheelchair’s path.',
+    description: 'Design and implement an artificial intelligence model capable of optimizing the best path for the wheelchair based on real-time environmental data and user preferences. Train and deploy a computer vision model using camera input to accurately detect and classify obstacles in the wheelchair’s path.',
     image: 'robot',
     link: 'https://www.researchgate.net/publication/381312652_Enhancing_Autonomous_Robotic_Navigation_through_the_A-star_Algorithm_A_Case_Study_in_Smart_Wheelchair_Design',
     languages: ['Python', 'TensorFlow', 'PyTorch'],
@@ -292,11 +291,12 @@ const projects = ref([
   },
 ]);
 
-downloadResume = ()=> {
-      const link = document.createElement('a');
-      link.href = `${process.env.BASE_URL}resume.pdf`;
-      link.download = 'resume.pdf';
-      link.click();
-    }
-
+const downloadResume = () => {
+  const link = document.createElement('a');
+  link.href = '/resume.pdf'; // Path to the resume in the public folder
+  link.download = 'resume.pdf'; // The name of the file after downloading
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 </script>

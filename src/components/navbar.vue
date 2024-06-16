@@ -65,10 +65,12 @@
 
   
   const navigation = [
-    { name: 'Home', href: '#' },
-    { name: 'About Me', href: '#' },
-    { name: 'Projects', href: '#' },
-    { name: 'Contact', href: '#' },
+    { name: 'Home', href: '#header' },
+    { name: 'Education', href: '#edu' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#exp' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Contact', href: '#contact' },
   ]
   const darkmode = ref(true)
   const mobileMenuOpen = ref(false)

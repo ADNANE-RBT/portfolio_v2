@@ -46,7 +46,6 @@ const props = defineProps({
   const resolvedImagePath = ref('');
 
 onMounted(async () => {
-  const link = props.link
   const images = import.meta.glob('../assets/*.{jpg,png,jpeg,gif,svg}');
   const imagePath = Object.keys(images).find(path => path.includes(props.image));
   if (imagePath) {
